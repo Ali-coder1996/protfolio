@@ -3,13 +3,13 @@
 
 ## Number and name of feature: Deploy and Extend Your Portfolio
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 4 hours
 
-Start time: _____
+Start time: 2 pm
 
-Finish time: _____
+Finish time: 6 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 3 hours
 
 
 
