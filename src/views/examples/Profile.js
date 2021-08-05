@@ -23,7 +23,13 @@ import { Button, Card, Container, Row, Col } from "reactstrap";
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import SimpleFooter from "components/Footers/SimpleFooter.js";
-import profile from "assets/img/theme/team-4-800x800.jpg";
+import profile from "assets/img/theme/My photo.jpeg";
+import classnames from "classnames";
+import {
+  NavItem,
+  NavLink,
+  Nav,
+} from "reactstrap";
 
 class Profile extends React.Component {
   componentDidMount() {
@@ -31,6 +37,15 @@ class Profile extends React.Component {
     document.scrollingElement.scrollTop = 0;
     this.refs.main.scrollTop = 0;
   }
+  state = {
+    circledNavPills: 3
+  };
+  toggleNavs = (e, state, index) => {
+    e.preventDefault();
+    this.setState({
+      [state]: index
+    });
+  };
   render() {
     return (
       <>
@@ -106,49 +121,79 @@ class Profile extends React.Component {
                       </div>
                     </Col>
                     <Col className="order-lg-1" lg="4">
-                      <div className="card-profile-stats d-flex justify-content-center">
-                        <div>
-                          <span className="heading">22</span>
-                          <span className="description">Friends</span>
-                        </div>
-                        <div>
-                          <span className="heading">10</span>
-                          <span className="description">Photos</span>
-                        </div>
-                        <div>
-                          <span className="heading">89</span>
-                          <span className="description">Comments</span>
-                        </div>
-                      </div>
+                      <Nav className="nav-pills-circle" id="tabs_2" pills role="tablist">
+                        <NavItem>
+                          <NavLink
+                            aria-selected={this.state.circledNavPills === 1}
+                            className={classnames("rounded-circle", {
+                              active: this.state.circledNavPills === 1
+                            })}
+                            onClick={e => this.toggleNavs(e, "circledNavPills", 1)}
+                            href="#pablo"
+                            role="tab"
+                          >
+                            <span className="nav-link-icon d-block">
+                              <i className="ni ni-atom" />
+                            </span>
+                          </NavLink>
+                        </NavItem>
+                        <NavItem>
+                          <NavLink
+                            aria-selected={this.state.circledNavPills === 2}
+                            className={classnames("rounded-circle", {
+                              active: this.state.circledNavPills === 2
+                            })}
+                            onClick={e => this.toggleNavs(e, "circledNavPills", 2)}
+                            href="#pablo"
+                            role="tab"
+                          >
+                            <span className="nav-link-icon d-block">
+                              <i className="ni ni-chat-round" />
+                            </span>
+                          </NavLink>
+                        </NavItem>
+                        <NavItem>
+                          <NavLink
+                            aria-selected={this.state.circledNavPills === 3}
+                            className={classnames("rounded-circle", {
+                              active: this.state.circledNavPills === 3
+                            })}
+                            onClick={e => this.toggleNavs(e, "circledNavPills", 3)}
+                            href="#pablo"
+                            role="tab"
+                          >
+                            <span className="nav-link-icon d-block">
+                              <i className="ni ni-cloud-download-95" />
+                            </span>
+                          </NavLink>
+                        </NavItem>
+                      </Nav>
                     </Col>
                   </Row>
                   <div className="text-center mt-5">
                     <h3>
-                      Jessica Jones{" "}
-                      <span className="font-weight-light">, 27</span>
+                      Ali ALhjouj{" "}
+                      <span className="font-weight-light">, 25</span>
                     </h3>
                     <div className="h6 font-weight-300">
                       <i className="ni location_pin mr-2" />
-                      Bucharest, Romania
+                      Jordan, Tafila
                     </div>
                     <div className="h6 mt-4">
                       <i className="ni business_briefcase-24 mr-2" />
-                      Solution Manager - Creative Tim Officer
+                      development engineer - Full stack engineer
                     </div>
                     <div>
                       <i className="ni education_hat mr-2" />
-                      University of Computer Science
+                      TAfila Technology University
                     </div>
                   </div>
                   <div className="mt-5 py-5 border-top text-center">
                     <Row className="justify-content-center">
                       <Col lg="9">
                         <p>
-                          An artist of considerable range, Ryan — the name taken
-                          by Melbourne-raised, Brooklyn-based Nick Murphy —
-                          writes, performs and records all of his own music,
-                          giving it a warm, intimate feel with a solid groove
-                          structure. An artist of considerable range.
+                          An engineering in Mechnical in production and machine I graduate on 2020
+                          now I'm learing programming in ASAC as a scholarship to be a Full stack development
                         </p>
                         <a href="#pablo" onClick={e => e.preventDefault()}>
                           Show more
